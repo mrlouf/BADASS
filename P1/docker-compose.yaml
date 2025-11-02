@@ -1,0 +1,19 @@
+networks:
+  P1_net:
+    driver: bridge
+
+services:
+  host_nponchon:
+    build: ./host_nponchon
+    container_name: host_nponchon
+    networks:
+      - P1_net
+    command: ["sleep", "infinity"]
+
+  router_nponchon:
+    build: ./router_nponchon
+    container_name: router_nponchon
+    networks:
+      - P1_net
+    #privileged: true
+    command: ["sleep", "infinity"]
