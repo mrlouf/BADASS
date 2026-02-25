@@ -1,0 +1,17 @@
+- name: Build router_nponchon image
+  tags:
+    - build
+  docker_image:
+    build:
+      path: ./P1/router_nponchon
+      name: router_nponchon
+      tag: latest
+
+- name: Build host_nponchon image
+  tags:
+    - build
+  docker_image:
+    build:
+      path: ./P1/host_nponchon
+      name: host_nponchon
+      tag: latest
