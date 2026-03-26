@@ -1,3 +1,5 @@
-FROM alpine:3.22.0
+FROM badass-frrouting
 
 RUN apk add busybox
+
+
