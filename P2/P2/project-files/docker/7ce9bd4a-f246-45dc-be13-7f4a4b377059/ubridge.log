@@ -1,0 +1,10 @@
+uBridge version 0.9.19 running with libpcap version 1.10.4 (with TPACKET_V3)
+Hypervisor TCP control server started (IP localhost port 35187).
+UDP tunnel connecting from local port 10001 to IPv4 address 127.0.0.1 on port 10000
+Source NIO listener thread for bridge0 has started
+Destination NIO listener thread for bridge0 has started
+UDP tunnel connecting from local port 10002 to IPv4 address 127.0.0.1 on port 10003
+Source NIO listener thread for bridge1 has started
+Destination NIO listener thread for bridge1 has started
+Capturing to file '/home/nicolas/Desktop/42/BADASS/P2/P2/project-files/captures/router_ponchon-1_eth1_to_host_ponchon-1_eth0.pcap'
+Capturing to file '/home/nicolas/Desktop/42/BADASS/P2/P2/project-files/captures/router_ponchon-1_eth1_to_host_ponchon-1_eth0.pcap'

@@ -17,7 +17,44 @@
     "topology": {
         "computes": [],
         "drawings": [],
-        "links": [],
+        "links": [
+            {
+                "filters": {},
+                "link_id": "c7ae7d78-9877-41fb-a69f-ce57eb138380",
+                "link_style": {
+                    "color": "#000000",
+                    "type": 1,
+                    "width": 2
+                },
+                "nodes": [
+                    {
+                        "adapter_number": 0,
+                        "label": {
+                            "rotation": 0,
+                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                            "text": "eth0",
+                            "x": 72,
+                            "y": 29
+                        },
+                        "node_id": "16a8e04b-9d39-4de7-92c7-6bf70a9b9c77",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "label": {
+                            "rotation": 0,
+                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                            "text": "eth0",
+                            "x": -14,
+                            "y": 33
+                        },
+                        "node_id": "647fa1de-fd3c-43cd-8b51-af9ba537c17b",
+                        "port_number": 0
+                    }
+                ],
+                "suspend": false
+            }
+        ],
         "nodes": [
             {
                 "compute_id": "local",
@@ -46,7 +83,7 @@
                     "console_http_path": "/",
                     "console_http_port": 80,
                     "console_resolution": "1024x768",
-                    "container_id": "203d6c3a1038957131200aaaecee6a6af09b38812cfcc8356b521e1a7fe97905",
+                    "container_id": "4b58637454d0fccc05742083cbb48c4e66270bdd6e25b291747e529a67470a0b",
                     "environment": null,
                     "extra_hosts": null,
                     "extra_volumes": [],
@@ -89,7 +126,7 @@
                     "console_http_path": "/",
                     "console_http_port": 80,
                     "console_resolution": "1024x768",
-                    "container_id": "c445e066628ed23afdb04ae3abb07ec64d29ec40dfb2fa02250ae04e6904ffff",
+                    "container_id": "4228d6fd08a0e527124e5d3abae835b2f185418de48d8876c82f913062dc7a51",
                     "environment": null,
                     "extra_hosts": null,
                     "extra_volumes": [],
@@ -109,6 +146,6 @@
     },
     "type": "topology",
     "variables": null,
-    "version": "2.2.58.1",
+    "version": "2.2.59",
     "zoom": 100
 }

@@ -1,0 +1,12 @@
+May 10 16:12:31.837 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+May 10 16:12:31.837 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 34215.
+May 10 16:12:31.845 HYPERVISOR: exec_cmd: hypervisor version 
+May 10 16:12:31.845 HYPERVISOR: exec_cmd: hypervisor working_dir /home/nicolas/Desktop/42/BADASS/P2/P2/project-files/dynamips 
+May 10 16:12:31.845 GENERAL: working_dir=/home/nicolas/Desktop/42/BADASS/P2/P2/project-files/dynamips
+May 10 16:12:31.845 HYPERVISOR: exec_cmd: ethsw create Switch_nponchon 
+May 10 16:12:32.061 HYPERVISOR: exec_cmd: nio create_udp udp-8d513f66-c250-4cb3-83d1-02717ff842c0 10000 127.0.0.1 10001 
+May 10 16:12:32.061 HYPERVISOR: exec_cmd: ethsw add_nio Switch_nponchon udp-8d513f66-c250-4cb3-83d1-02717ff842c0 
+May 10 16:12:32.078 HYPERVISOR: exec_cmd: ethsw set_access_port Switch_nponchon udp-8d513f66-c250-4cb3-83d1-02717ff842c0 1 
+May 10 16:12:32.119 HYPERVISOR: exec_cmd: nio create_udp udp-44d5d3cb-e39e-4940-8962-e7f58490144e 10004 127.0.0.1 10005 
+May 10 16:12:32.119 HYPERVISOR: exec_cmd: ethsw add_nio Switch_nponchon udp-44d5d3cb-e39e-4940-8962-e7f58490144e 
+May 10 16:12:32.138 HYPERVISOR: exec_cmd: ethsw set_access_port Switch_nponchon udp-44d5d3cb-e39e-4940-8962-e7f58490144e 1 
