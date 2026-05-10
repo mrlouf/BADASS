@@ -8,6 +8,7 @@ This glossary shall be a humble attempt at centralising and defining concepts, a
 
 All definitions are my own and may be inaccurate, incomplete or just plain wrong.
 
+- ACL (Access Control Lists): Firewall rules between VLANs. Useful to open or close communication between subnetworks, like staff vs. students at 42, etc.
 - AS (Autonomous System):
 - BGP (Border Gateway Protocol): Exchanging routes between autonomous systems (like Internet-scale routing)
 - BGP EVPN (RFC 7432)
