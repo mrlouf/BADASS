@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd "$(dirname "$0")"
+
 # Pull FRR image from Quay
 docker pull quay.io/frrouting/frr:10.5.3
 

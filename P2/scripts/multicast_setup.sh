@@ -5,7 +5,7 @@
 # Usage: ./setup_p2.sh
 # ─────────────────────────────────────────────
 
-PROJECT_ID="a3649233-27f8-4f25-8ded-53f9d2dd2f0e"
+PROJECT_ID="d76e7cc0-5f48-4d70-a402-bd0931309142"
 
 R1="GNS3.router_nponchon-1.${PROJECT_ID}"
 R2="GNS3.router_nponchon-2.${PROJECT_ID}"
