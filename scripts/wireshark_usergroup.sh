@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# A executer si Wireshark n'a pas les permissions de lancer dumpcap
+
 # Ajouter user au groupe wireshark
 sudo usermod -aG wireshark $USER
 
