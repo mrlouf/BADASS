@@ -24,7 +24,7 @@ All definitions are my own and may be inaccurate, incomplete or just plain wrong
 - **MPLS**
 - **Multicast**
 - **OSPF** (Open Shortest Path First):
-- **RR** (Route Reflection):
+- **RR** (Route Reflector):
 - **Route types**:
 - **Static vs. dynamic** mode: In static mode, the routers have the IPs of the other routers members of the same VXLAN hardcoded. In dynamic mode, however, all the routers are using groups to communicate with all the others: they listen to the same multicast IP (range 224.0.0.0 to 239.255.255.255) to discover all the other members. This avoid unnecessary broadcast or hardcoded IPs.
 - **VNI** (VXLAN Network Identifier): The identifier for a specific segment in a VXLAN.
