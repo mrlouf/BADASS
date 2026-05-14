@@ -11,9 +11,9 @@ SILENCE="&>/dev/null"
 
 RR="GNS3.nponchon-1.${PROJECT_ID}"
 
-L2="GNS3.nponchon-2.${PROJECT_ID}"
-L3="GNS3.nponchon-3.${PROJECT_ID}"
-L4="GNS3.nponchon-4.${PROJECT_ID}"
+L1="GNS3.nponchon-2.${PROJECT_ID}"
+L2="GNS3.nponchon-3.${PROJECT_ID}"
+L3="GNS3.nponchon-4.${PROJECT_ID}"
 
 H1="GNS3.host_nponchon-1.${PROJECT_ID}"
 H2="GNS3.host_nponchon-2.${PROJECT_ID}"
@@ -25,7 +25,7 @@ setup_vxlan() {
     CONTAINER=$1
     HOST_IP=$2
     docker exec -i "$CONTAINER" ip link add br0 type bridge
-    docker exec -i "$CONTAINER" ip link add vxlan10 type vxlan id 10 dstport 4789 local $HOST_IP dev eth0
+    docker exec -i "$CONTAINER" ip link add vxlan10 type vxlan id 10 dstport 4789 local $HOST_IP
     docker exec -i "$CONTAINER" ip link set vxlan10 master br0
     docker exec -i "$CONTAINER" ip link set eth1 master br0
     docker exec -i "$CONTAINER" ip link set vxlan10 up
@@ -38,7 +38,26 @@ setup_vxlan() {
 log "Stage 0 - IPs for everyone\n"
 # ─────────────────────────────────────────────
 
-setup_vxlan "$L2" "1.1.1.2"
-setup_vxlan "$L3" "1.1.1.3"
-setup_vxlan "$L4" "1.1.1.4"
+setup_vxlan "$L1" "1.1.1.2"
+setup_vxlan "$L2" "1.1.1.3"
+setup_vxlan "$L3" "1.1.1.4"
+
+# ─────────────────────────────────────────────
+log "VERIFICATION"
+# ─────────────────────────────────────────────
+
+# ─────────────────────────────────────────────
+echo -e "\n--- L1 (nponchon-2) - VXLAN Config ---"
+docker exec -i "$L1" ip link show vxlan10
+docker exec -i "$L1" ip addr show vxlan10
+
+# ─────────────────────────────────────────────
+echo -e "\n--- L2 (nponchon-3) - VXLAN Config ---"
+docker exec -i "$L2" ip link show vxlan10
+docker exec -i "$L2" ip addr show vxlan10
+
+# ─────────────────────────────────────────────
+echo -e "\n--- L3 (nponchon-4) - VXLAN Config ---"
+docker exec -i "$L3" ip link show vxlan10
+docker exec -i "$L3" ip addr show vxlan10
 

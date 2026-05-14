@@ -11,9 +11,9 @@ SILENCE="&>/dev/null"
 
 RR="GNS3.nponchon-1.${PROJECT_ID}"
 
-L2="GNS3.nponchon-2.${PROJECT_ID}"
-L3="GNS3.nponchon-3.${PROJECT_ID}"
-L4="GNS3.nponchon-4.${PROJECT_ID}"
+L1="GNS3.nponchon-2.${PROJECT_ID}"
+L2="GNS3.nponchon-3.${PROJECT_ID}"
+L3="GNS3.nponchon-4.${PROJECT_ID}"
 
 H1="GNS3.host_nponchon-1.${PROJECT_ID}"
 H2="GNS3.host_nponchon-2.${PROJECT_ID}"
@@ -36,3 +36,10 @@ log "Stage 0 - IPs for everyone\n"
 setup_host_ip "$H1" "20.1.1.1"
 setup_host_ip "$H2" "20.1.1.2"
 setup_host_ip "$H3" "20.1.1.3"
+
+
+# ─────────────────────────────────────────────
+log "VERIFICATION\n"
+# ─────────────────────────────────────────────
+echo "--- Ping host1 -> host2 ---"
+docker exec -i "$H1" ping -c 3 20.1.1.2

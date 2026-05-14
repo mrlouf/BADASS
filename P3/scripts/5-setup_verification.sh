@@ -31,10 +31,6 @@ vtysh_cmd() {
 log "VERIFICATION"
 # ─────────────────────────────────────────────
 
-echo -e "\n--- RR (nponchon-1) - BGP Config ---"
-docker exec -i "$RR" vtysh -c "show ip ospf neighbor"
-docker exec -i "$RR" vtysh -c "show bgp l2vpn evpn"
-
 # ─────────────────────────────────────────────
 echo -e "\n--- L1 (nponchon-2) - BGP Config ---"
 docker exec -i "$L1" vtysh -c "show ip ospf neighbor"
@@ -50,4 +46,8 @@ echo -e "\n--- L3 (nponchon-4) - BGP Config ---"
 docker exec -i "$L3" vtysh -c "show ip ospf neighbor"
 docker exec -i "$L3" vtysh -c "show bgp l2vpn evpn"
 
-
+# ─────────────────────────────────────────────
+echo -e "\n--- RR (nponchon-1) - BGP Config ---"
+docker exec -i "$RR" vtysh -c "show ip ospf neighbor"
+docker exec -i "$RR" vtysh -c "show bgp l2vpn evpn"
+docker exec -i "$RR" vtysh -c "show bgp summary"

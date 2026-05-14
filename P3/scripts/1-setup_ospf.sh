@@ -11,9 +11,9 @@ SILENCE="&>/dev/null"
 
 RR="GNS3.nponchon-1.${PROJECT_ID}"
 
-L2="GNS3.nponchon-2.${PROJECT_ID}"
-L3="GNS3.nponchon-3.${PROJECT_ID}"
-L4="GNS3.nponchon-4.${PROJECT_ID}"
+L1="GNS3.nponchon-2.${PROJECT_ID}"
+L2="GNS3.nponchon-3.${PROJECT_ID}"
+L3="GNS3.nponchon-4.${PROJECT_ID}"
 
 H1="GNS3.host_nponchon-1.${PROJECT_ID}"
 H2="GNS3.host_nponchon-2.${PROJECT_ID}"
@@ -81,7 +81,7 @@ end
 write memory" $SILENCE
 
 # ─────────────────────────────────────────────
-vtysh_cmd "$L2" "configure terminal
+vtysh_cmd "$L1" "configure terminal
 interface eth0
   ip address 10.1.1.2/30
 exit
@@ -89,16 +89,16 @@ end
 write memory" $SILENCE
 
 # ─────────────────────────────────────────────
-vtysh_cmd "$L3" "configure terminal
-interface eth1
+vtysh_cmd "$L2" "configure terminal
+interface eth0
   ip address 10.1.1.6/30
 exit
 end
 write memory" $SILENCE
 
 # ─────────────────────────────────────────────
-vtysh_cmd "$L4" "configure terminal
-interface eth2
+vtysh_cmd "$L3" "configure terminal
+interface eth0
   ip address 10.1.1.10/30
 exit
 end
@@ -118,19 +118,22 @@ ospf_config "$RR" "1.1.1.1" "1.1.1.1" "eth0 eth1 eth2" $SILENCE
  
 # ─────────────────────────────────────────────
 log "Leaf nponchon-2 - router-id 1.1.1.2"
-ospf_config "$L2" "1.1.1.2" "1.1.1.2" "eth0" $SILENCE
+ospf_config "$L1" "1.1.1.2" "1.1.1.2" "eth0" $SILENCE
  
 # ─────────────────────────────────────────────
 log "Leaf nponchon-3 - router-id 1.1.1.3"
-ospf_config "$L3" "1.1.1.3" "1.1.1.3" "eth1" $SILENCE
+ospf_config "$L2" "1.1.1.3" "1.1.1.3" "eth0" $SILENCE
  
 # ─────────────────────────────────────────────
 log "Leaf nponchon-4 - router-id 1.1.1.4\n"
-ospf_config "$L4" "1.1.1.4" "1.1.1.4" "eth2" $SILENCE
+ospf_config "$L3" "1.1.1.4" "1.1.1.4" "eth0" $SILENCE
  
 # ─────────────────────────────────────────────
 log "VERIFICATION"
- 
+
+echo -e "\n--- Sleep to wait for OSPF to converge ---"
+sleep 5
+
 echo -e "\n--- OSPF neighbours on RR (should show Leaves) ---"
 docker exec -i "$RR" vtysh -c "show ip ospf neighbor"
  
@@ -138,9 +141,8 @@ echo -e "\n--- OSPF routes on RR ---"
 docker exec -i "$RR" vtysh -c "show ip route ospf"
  
 echo -e "\n--- OSPF neighbours on nponchon-2 ---"
-docker exec -i "$L2" vtysh -c "show ip ospf neighbor"
- 
-sleep 2 # Wait a bit for OSPF to converge
+docker exec -i "$L1" vtysh -c "show ip ospf neighbor"
+
 
 echo -e "\n--- Ping loopback RR from nponchon-2 ---"
-docker exec -i "$L2" ping -c 3 1.1.1.1
+docker exec -i "$L1" ping -c 3 1.1.1.1
