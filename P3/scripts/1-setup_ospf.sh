@@ -140,6 +140,7 @@ docker exec -i "$RR" vtysh -c "show ip route ospf"
 echo -e "\n--- OSPF neighbours on nponchon-2 ---"
 docker exec -i "$L2" vtysh -c "show ip ospf neighbor"
  
-sleep 0.5
+sleep 2 # Wait a bit for OSPF to converge
+
 echo -e "\n--- Ping loopback RR from nponchon-2 ---"
 docker exec -i "$L2" ping -c 3 1.1.1.1

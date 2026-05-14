@@ -121,17 +121,17 @@ docker exec -i "$RR" vtysh -c "show ip ospf neighbor"
 docker exec -i "$RR" vtysh -c "show bgp l2vpn evpn"
 
 # ─────────────────────────────────────────────
-echo -e "\n--- L1 (nponchon-1) - BGP Config ---"
+echo -e "\n--- L1 (nponchon-2) - BGP Config ---"
 docker exec -i "$L1" vtysh -c "show ip ospf neighbor"
 docker exec -i "$L1" vtysh -c "show bgp l2vpn evpn"
 
 # ─────────────────────────────────────────────
-echo -e "\n--- L2 (nponchon-1) - BGP Config ---"
+echo -e "\n--- L2 (nponchon-3) - BGP Config ---"
 docker exec -i "$L2" vtysh -c "show ip ospf neighbor"
 docker exec -i "$L2" vtysh -c "show bgp l2vpn evpn"
 
 # ─────────────────────────────────────────────
-echo -e "\n--- L3 (nponchon-1) - BGP Config ---"
+echo -e "\n--- L3 (nponchon-4) - BGP Config ---"
 docker exec -i "$L3" vtysh -c "show ip ospf neighbor"
 docker exec -i "$L3" vtysh -c "show bgp l2vpn evpn"
 
