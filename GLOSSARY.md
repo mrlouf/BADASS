@@ -18,9 +18,9 @@ All definitions are my own and may be inaccurate, incomplete or just plain wrong
 - **DHCP**:
 - **DNS** (Domain Name System): The phonebook of the Internet. This is the service that translates a domain name, ie. a string into a corresponding IP address.
 - **Ethernet**:
-- **IS-IS** (Intermediate System to Intermediate System):
+- **IS-IS** (Intermediate System to Intermediate System): A routing protocol.
 - **Leaf**: see VTEP.
-- **MAC** address:
+- **MAC** address: 
 - **MPLS**
 - **Multicast**
 - **OSPF** (Open Shortest Path First):
