@@ -16,6 +16,14 @@ traceroute to 30.1.1.20 (30.1.1.20), 30 hops max, 46 byte packets
  1  30.1.1.20 (30.1.1.20)  0.271 ms  0.275 ms  0.126 ms
 ```
 
+To setup the VXLAN, we need to create a new network interface with `ip link add` and specify the type as `vxlan`, the VNI, the port, and the local and remote IPs using the information given by the subject.
+
+The VNI is the identifier for a specific segment in a VXLAN, and the port is the UDP port used for encapsulation and decapsulation (4789 by default for VXLAN).
+
+The local and remote IPs are the IP addresses of the VTEP, which are the entry and exit points for the VXLAN. These are the endpoints where Ethernet frames are encapsulated into UDP packets and decapsulated back into Ethernet frames before travelling to their destination. When they have reached the destination VTEP, they are decapsulated back to Ethernet frames and delivered to the remote host.
+
+Once the VXLAN is set up, we need to add the new interface to the bridge to make it part of the same broadcast domain as the eth0 interface.
+
 ## Static vs. Dynamic cast
 
 This first part of P2 must be done using static cast, which means that the router's IPs in the VXLAN are hardcoded:
