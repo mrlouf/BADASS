@@ -5,7 +5,7 @@
 # Usage: ./4-setup_hosts.sh
 # ─────────────────────────────────────────────
 
-PROJECT_ID="afc55a2d-ce92-40fc-87a4-461572f43474"
+PROJECT_ID="45728401-2528-445d-8a14-674a59845c79"
 
 SILENCE="&>/dev/null"
 
